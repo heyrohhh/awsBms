@@ -17,8 +17,8 @@ jobs:
            password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: backend-build-and-push
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/awbmsbackend:v1 ./backend
-          docker push ${{ secrets.DOCKERHUB_PASSWORD }}/awbmsbackend:v1
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/awbms-backend:v1 ./backend
+          docker push ${{ secrets.DOCKERHUB_PASSWORD }}/awbms-backend:v1
       - name: frontend-build-and-push
         run: |
          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/awbmsfrontend:v1 ./frontend
