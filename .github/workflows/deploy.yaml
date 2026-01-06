@@ -1,0 +1,25 @@
+name: awBms CD pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+   build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+       
+      - name: docker-hub-login
+        run: docker/login-action@v3
+        with:
+           username: ${{ secret.DOCKERHUB_USERNAME }}
+           password: ${{ secret.DOCKERHUB_PASSWORD }}
+      - name: backend-build-and-push
+        run: |
+          docker build -t ${{ secret.DOCKERHUB_USERNAME }}/awbmsbackend:v1 ./backend
+          docker push -t ${{ secret.DOCKERHUB_PASSWORD }}/awbmsbackend:v1
+      - name: frontend-build-and-push
+        run: |
+         docker build -t ${{ secret.DOCKERHUB_USERNAME }}/awbmsfrontend:v1 ./frontend
+         docker push -t ${{ secret.DOCKERHUB_PASSWORD }}/awbmsfrontend:v1
