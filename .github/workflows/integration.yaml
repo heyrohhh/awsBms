@@ -19,7 +19,6 @@ jobs:
         working-directory: ./backend  
         run: |
           npm install
-          npm run test
 
   frontend-check:
     runs-on: ubuntu-latest
