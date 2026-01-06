@@ -18,8 +18,8 @@ jobs:
       - name: backend-build-and-push
         run: |
           docker build -t heyrohhh/awbms-backend:v1 ./backend
-          docker push heyrohh/awbms-backend:v1
+          docker push heyrohh/awbms-backend:v1 ./backend
       - name: frontend-build-and-push
         run: |
          docker build -t heyrohhh/awbmsfrontend:v1 ./frontend
-         docker push heyrohhh/awbmsfrontend:v1
+         docker push heyrohhh/awbmsfrontend:v1 ./frontend
