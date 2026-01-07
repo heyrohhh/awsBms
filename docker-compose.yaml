@@ -10,7 +10,7 @@ services:
                - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
         restart: unless-stopped
     backend:
-        build: ./backend
+        image: heyrohhh/awbms-backend:v1
         ports: 
          - "9000:9000"
         restart: unless-stopped
@@ -19,9 +19,9 @@ services:
         depends_on:
            - database
     frontend:
-       build: ./frontend
+       image: heyrohhh/awbmsfrontend:v1
        ports:
-        - "80gi:80"
+        - "80:80"
        depends_on:
         - backend
       
