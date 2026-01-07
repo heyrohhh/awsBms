@@ -16,12 +16,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build and Push Backend
         run: |
-          docker build -t heyrohhh/awbms-backend:latest ./backend
-          docker push heyrohhh/awbms-backend:latest
+          docker build -t heyrohhh/awbms-backend:v2 ./backend
+          docker push heyrohhh/awbms-backend:v2
       - name: Build and Push Frontend
         run: |
-          docker build -t heyrohhh/awbmsfrontend:latest ./frontend
-          docker push heyrohhh/awbmsfrontend:latest
+          docker build -t heyrohhh/awbmsfrontend:v2 ./frontend
+          docker push heyrohhh/awbmsfrontend:v2
 
       - name: Copy docker-compose and schema
         uses: appleboy/scp-action@v0.1.7
