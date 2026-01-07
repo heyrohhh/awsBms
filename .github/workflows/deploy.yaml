@@ -49,5 +49,5 @@ jobs:
             echo "MYSQL_ROOT_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
             echo "MYSQL_DATABASE=${{ secrets.DB_NAME }}" >> .env
             docker-compose pull
-            docker compose up -d --remove-orphans
-            docker-image prune -f
+            docker-compose up -d --remove-orphans
+            docker image prune -f
