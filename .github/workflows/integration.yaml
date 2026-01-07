@@ -16,7 +16,7 @@ jobs:
           node-version: 20
 
       - name: cache  dependencies
-        uses: action/cache@v3
+        uses: actions/cache@v3
         with:
           node-version: 20
           cache: 'npm'
