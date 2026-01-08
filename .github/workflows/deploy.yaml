@@ -29,9 +29,9 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "docker-compose.yaml,database/schema.sql"
+          source: "docker-compose.yaml,database/schema.sql,nginx/conf/default.conf"
           target: "~/"
-
+#ehhhh boiiiiii
       - name: SSH and Deploy
         uses: appleboy/ssh-action@v1.0.3
         with: 
@@ -42,6 +42,8 @@ jobs:
             cd ~/
             mkdir -p database 
             mv database/schema.sql ./database/schema.sql 2>/dev/null || true
+            mkdir -p database nginx/conf certbot/conf certbot/www
+            mv nginx/conf/default.conf ./nginx/conf/default.conf 2>/dev/null || true
             echo "DB_HOST=${{ secrets.DB_HOST }}" > .env
             echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
             echo "DB_USER=${{ secrets.DB_USER }}" >> .env
@@ -51,3 +53,8 @@ jobs:
             docker-compose pull
             docker-compose up -d --remove-orphans
             docker image prune -f
+            docker compose run --rm certbot certonly \
+            --webroot --webroot-path=/var/www/certbot \
+            --email rm8619700@gmail.com \
+            --agree-tos --no-eff-email \
+            -d rohitneelmishra.duckdns.org
