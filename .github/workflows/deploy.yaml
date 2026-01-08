@@ -53,8 +53,4 @@ jobs:
             docker-compose pull
             docker-compose up -d --remove-orphans
             docker image prune -f
-            docker-compose run --rm certbot certonly \
-            --webroot --webroot-path=/var/www/certbot \
-            --email rm8619700@gmail.com \
-            --agree-tos --no-eff-email \
-            -d rohitneelmishra.duckdns.org
+            docker-compose restart nginx
