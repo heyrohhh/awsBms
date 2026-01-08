@@ -12,8 +12,6 @@ services:
         restart: unless-stopped
     backend:
         image: heyrohhh/awbms-backend:v2
-        ports: 
-         - "9000:9000"
         restart: unless-stopped
         env_file:
          - .env
@@ -21,8 +19,6 @@ services:
            - database
     frontend:
        image: heyrohhh/awbmsfrontend:v2
-       ports:
-        - "80:80"
        depends_on:
         - backend
     nginx:

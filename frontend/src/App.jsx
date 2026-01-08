@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Book Management for Librarian Rohit</h1>
+      <h1>Book Management</h1>
 
       <form onSubmit={addBook}>
         <input
