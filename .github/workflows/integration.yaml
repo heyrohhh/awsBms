@@ -51,14 +51,4 @@ jobs:
                 - name: upload artifact
                   uses: actions/upload-artifact@v4
                   with:
-                    path: ./frontend/dist  
-
-
-
-
-
-
-
-
-
-  
+                    path: ./frontend/dist 

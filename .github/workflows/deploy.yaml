@@ -1,0 +1,27 @@
+name: cd pipeline
+
+on:
+ push:
+  branches:
+    - main
+jobs:
+    docker-login:
+          runs-on: ubuntu-latest
+          steps:
+           - uses: actions/checkout
+           - name: docker login
+             uses: actions/ login-action@v3
+             with: 
+               username: ${{secrets.DOCKERHUB_USERNAME}}
+               password: ${{secrets.DOCKERHUB_PASSWORD}}
+           - name: backend image build and push on docker hub 
+             run: |
+              docker build -t heyrohhh/libackend:v1 ./backend/           
+              docker push heyrohhh/libackend:v1
+           - name: frontend image build and push on docker hub
+             run: |
+                 docker build -t heyrohhh/libackend ./frontend
+                 docker push heyrohhh/libackend
+                 
+
+             
