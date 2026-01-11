@@ -20,8 +20,8 @@ jobs:
               docker push heyrohhh/libackend:v1
            - name: frontend image build and push on docker hub
              run: |
-                 docker build -t heyrohhh/libackend ./frontend
-                 docker push heyrohhh/frontend
+                 docker build -t heyrohhh/libfrontend:v1 ./frontend
+                 docker push heyrohhh/libfrontend:v1
 
 
              
