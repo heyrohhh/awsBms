@@ -55,6 +55,22 @@ Strategy A (Monolithic): Deploy via Docker Compose on a single Amazon EC2 (t2.mi
 
 Strategy B (Scalable): Decouple services using AWS ECS (Fargate) for compute and Amazon RDS for a managed database layer.
 
-Maintained by: [Your Name]
+Maintained by: Rohit Neel Mishra
 
-Repository Link: https://github.com/heyrohhh/awsBms
+Repository Link: https://github.com/heyrohhh/CloudBook-Orchestrator-A-Containerized-Full-Stack-LMS.git
+
+## 🏗️ Advanced DevOps Features
+- **CI/CD Pipeline:** Automated build and deployment using **GitHub Actions**.
+- **Security:** SSL/TLS certificate implementation using **Certbot** and **Nginx Reverse Proxy**.
+- **Cloud Infrastructure:** Hosted on **AWS EC2** with custom Security Groups.
+- **Service Orchestration:** Production-grade **Docker Compose** setup.
+
+## 🚀 CI/CD Workflow (GitHub Actions)
+Har `push` par pipeline ye steps perform karta hai:
+1. Code linting aur security checks.
+2. Docker images build karna.
+3. EC2 instance par login karke containers ko auto-update/restart karna.
+
+## 🔒 Nginx & SSL Configuration
+- **Reverse Proxy:** Nginx backend API aur frontend traffic ko route karta hai.
+- **SSL:** HTTPS enabled via Let's Encrypt for encrypted data transfer.
